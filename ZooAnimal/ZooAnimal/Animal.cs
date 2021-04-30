@@ -27,5 +27,10 @@ namespace ZooAnimal
             Console.WriteLine($"{animal.Name}, a {animal.Color}-colored animal. {animal.Weight} pounds, {animal.Height} inches.");
         }
 
+        public double CalculateAverageWeight(Animal animal)
+        {
+            return animal.Weight;
+            
+        }
     }
 }
