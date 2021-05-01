@@ -21,41 +21,53 @@ namespace ZooAnimal
             AverageHeight = 0;
         }
 
-        public double AverageWeights()
+        public void AverageWeights()
         {
             double avg = 0;
-         /*   foreach (var item in ZooInfo)
+            int count = 0;
+            foreach (var item in ZooInfo.OrderBy(i => i.Key))
             {
                 for (int i = 0; i < item.Value.Count; i++)
                 {
                     Animal a = new Animal();
-                    double w = a.CalculateAverageWeight(item.Value[i]);
-                    w += w;
-                    avg = w / item.Value.Count;
+                    avg = a.CalculateAverageWeight(item.Value[i]);
+                    AverageWeight += avg;
+                    count++;
                 }
-            }*/
-            return avg;
+                AverageWeight = AverageWeight / count;
+                Console.WriteLine($"{item.Key} Zoo has an average weight of {AverageWeight.ToString("N2")} pounds.");
+                Console.WriteLine();
+            }
+        }
+        public void AverageHeights()
+        {
+            double avg = 0;
+            int count = 0;
+            foreach (var item in ZooInfo.OrderBy(i => i.Key))
+            {
+                for (int i = 0; i < item.Value.Count; i++)
+                {
+                    Animal a = new Animal();
+                    avg = a.CalculateAverageHeight(item.Value[i]);
+                    AverageHeight += avg;
+                    count++;
+                }
+                AverageHeight = AverageHeight / count;
+                Console.WriteLine($"{item.Key} Zoo has an average weight of {AverageHeight.ToString("N2")} inches.");
+                Console.WriteLine();
+            }
         }
 
         public void DisplayZooInfo()
         {
             foreach (var item in ZooInfo.OrderBy(i => i.Key))
             {
-                double avg = 0;
-                double w = 0;
-                int count = 1;
                 Console.WriteLine($"{item.Key} Zoo has the following animal:");
                 for (int i = 0; i < item.Value.Count; i++)
                 {
                     Animal a = new Animal();
                     a.DisplayZooInfo(item.Value[i]);
-                    w = a.CalculateAverageWeight(item.Value[i]);
-                    w += w;
-                    ++count;
                 }
-                avg = w / count;
-                Console.WriteLine($"The average weight for this zoo is {avg}");
-                //Console.WriteLine($"The average height for this zoo is {AverageWeights()}");
                 Console.WriteLine();
             }
         }

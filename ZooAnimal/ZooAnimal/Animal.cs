@@ -24,13 +24,18 @@ namespace ZooAnimal
 
         public void DisplayZooInfo(Animal animal)
         {
-            Console.WriteLine($"{animal.Name}, a {animal.Color}-colored animal. {animal.Weight} pounds, {animal.Height} inches.");
+            Console.WriteLine($"{animal.Name} is a {animal.Color}-colored animal, that weights {animal.Weight.ToString("N2")} pounds, with a height of {animal.Height} inches.");
         }
 
         public double CalculateAverageWeight(Animal animal)
         {
             return animal.Weight;
             
+        }
+
+        public double CalculateAverageHeight(Animal animal)
+        {
+            return animal.Height;
         }
     }
 }

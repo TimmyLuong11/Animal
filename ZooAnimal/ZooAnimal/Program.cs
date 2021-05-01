@@ -36,22 +36,68 @@ namespace ZooAnimal
                 }
             }
             Console.WriteLine("Welcome to the Zoo database!");
-            Console.WriteLine("Would you like a list of all the animals or would you like to see where the animals are located?");
-            Console.WriteLine("Type 'list' for list of animals or 'state' for location of the animals");
+            Console.WriteLine("What would you like to see about the Zoo database");
+            Console.WriteLine("Type the number to see that information:");
+            Console.WriteLine("1. See the list of all the animal\n2. See the animal location\n3. See the average weight at each location\n4. See the average height at each location");
             string answer = Console.ReadLine();
-            if (answer.ToLower()[0] == 'l')
+            do
             {
-                for (int i = 0; i < animalLists.Count; i++)
+                switch (answer.ToLower()[0])
                 {
-                    Animal a2 = new Animal();
-                    a2.DisplayZooInfo(animalLists[i]);
+                    case '1':
+                        for (int i = 0; i < animalLists.Count; i++)
+                        {
+                            Animal a2 = new Animal();
+                            a2.DisplayZooInfo(animalLists[i]);
+                            Console.WriteLine();
+                        }
+                        break;
+                    case '2':
+                        z1.DisplayZooInfo();
+                        break;
+                    case '3':
+                        z1.AverageWeights();
+                        break;
+                    case '4':
+                        z1.AverageHeights();
+                        break;
+                    default:
+                        Console.WriteLine("You did not enter in an valid answer. Please try again!");
+                        break;
                 }
-
-            }
-            else
-            {
-                z1.DisplayZooInfo();
-            }
+                if (answer.ToLower()[0] == 'y')
+                {
+                    Console.WriteLine("1. See the list of all the animal\n2. See the animal location\n3. See the average weight at each location\n4. See the average height at each location");
+                    answer = Console.ReadLine();
+                    switch (answer.ToLower()[0])
+                    {
+                        case '1':
+                            for (int i = 0; i < animalLists.Count; i++)
+                            {
+                                Animal a2 = new Animal();
+                                a2.DisplayZooInfo(animalLists[i]);
+                                Console.WriteLine();
+                            }
+                            break;
+                        case '2':
+                            z1.DisplayZooInfo();
+                            break;
+                        case '3':
+                            z1.AverageWeights();
+                            break;
+                        case '4':
+                            z1.AverageHeights();
+                            break;
+                        default:
+                            Console.WriteLine("You did not enter in an valid answer. Please try again!");
+                            break;
+                    }
+                }
+                Console.WriteLine("Would you like to see a different information? Type 'yes' or 'no'");
+                answer = Console.ReadLine();
+            } while (answer.ToLower()[0] != 'n');
+            
+            Console.WriteLine("Thanks for using the Zoo database! Have a great day.");
         }
     }
 }
