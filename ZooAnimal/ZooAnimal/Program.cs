@@ -8,10 +8,12 @@ namespace ZooAnimal
     {
         static void Main(string[] args)
         {
+            //Reading in the file and adding each part to thier respective variable
             string[] lines = File.ReadAllLines("ZooAnimal.csv");
             Zoo z1 = new Zoo();
             List<Animal> animalLists = new List<Animal>();
 
+            //Looping through each line and adding the data to thier respective variable
             for (int i = 1; i < lines.Length; i++)
             {
                 string line = lines[i];
@@ -35,11 +37,15 @@ namespace ZooAnimal
                     z1.ZooInfo[pieces[4]].Add(a1);
                 }
             }
+
+            //Welcoming the user to the database
             Console.WriteLine("Welcome to the Zoo database!");
             Console.WriteLine("What would you like to see about the Zoo database");
             Console.WriteLine("Type the number to see that information:");
             Console.WriteLine("1. See the list of all the animal\n2. See the animal location\n3. See the average weight at each location\n4. See the average height at each location");
             string answer = Console.ReadLine();
+            
+            //Looping through until the user wants to quit and showing what the user wants to see
             do
             {
                 switch (answer.ToLower()[0])
@@ -97,6 +103,7 @@ namespace ZooAnimal
                 answer = Console.ReadLine();
             } while (answer.ToLower()[0] != 'n');
             
+            //Thanking the user for using the database 
             Console.WriteLine("Thanks for using the Zoo database! Have a great day.");
         }
     }

@@ -10,10 +10,14 @@ namespace ZooAnimal
     /// </summary>
     class Zoo
     {
+        //Declaring public variables
         public Dictionary<string, List<Animal>> ZooInfo { get; set; }
         public double AverageWeight { get; set; }
         public double AverageHeight { get; set; }
 
+        /// <summary>
+        /// Default constructor setting each value to 0 or new
+        /// </summary>
         public Zoo()
         {
             ZooInfo = new Dictionary<string, List<Animal>>();
@@ -21,6 +25,9 @@ namespace ZooAnimal
             AverageHeight = 0;
         }
 
+        /// <summary>
+        /// Calculate the average height of the zoo location 
+        /// </summary>
         public void AverageWeights()
         {
             double avg = 0;
@@ -39,6 +46,10 @@ namespace ZooAnimal
                 Console.WriteLine();
             }
         }
+
+        /// <summary>
+        /// Calculate the average weight of the zoo location
+        /// </summary>
         public void AverageHeights()
         {
             double avg = 0;
@@ -58,6 +69,9 @@ namespace ZooAnimal
             }
         }
 
+        /// <summary>
+        /// Dispaly the animals at each zoo location
+        /// </summary>
         public void DisplayZooInfo()
         {
             foreach (var item in ZooInfo.OrderBy(i => i.Key))
