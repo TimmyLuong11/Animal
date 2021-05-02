@@ -30,10 +30,11 @@ namespace ZooAnimal
         /// </summary>
         public void AverageWeights()
         {
-            double avg = 0;
-            int count = 0;
             foreach (var item in ZooInfo.OrderBy(i => i.Key))
             {
+                double avg = 0;
+                int count = 0;
+                AverageWeight = 0;
                 for (int i = 0; i < item.Value.Count; i++)
                 {
                     Animal a = new Animal();
@@ -52,10 +53,11 @@ namespace ZooAnimal
         /// </summary>
         public void AverageHeights()
         {
-            double avg = 0;
-            int count = 0;
             foreach (var item in ZooInfo.OrderBy(i => i.Key))
             {
+                double avg = 0;
+                int count = 0;
+                AverageHeight = 0;
                 for (int i = 0; i < item.Value.Count; i++)
                 {
                     Animal a = new Animal();
@@ -66,6 +68,7 @@ namespace ZooAnimal
                 AverageHeight = AverageHeight / count;
                 Console.WriteLine($"{item.Key} Zoo has an average height of {AverageHeight.ToString("N2")} inches.");
                 Console.WriteLine();
+                count = 0;
             }
         }
 
