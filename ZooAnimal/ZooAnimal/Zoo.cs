@@ -64,7 +64,7 @@ namespace ZooAnimal
                     count++;
                 }
                 AverageHeight = AverageHeight / count;
-                Console.WriteLine($"{item.Key} Zoo has an average weight of {AverageHeight.ToString("N2")} inches.");
+                Console.WriteLine($"{item.Key} Zoo has an average height of {AverageHeight.ToString("N2")} inches.");
                 Console.WriteLine();
             }
         }
